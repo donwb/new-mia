@@ -25,6 +25,8 @@ app.get('/', function(req, res) {
   res.sendfile(__dirname + '/public/index.html');
 });
 
+app.get('/listings', api.allHomes);
+app.get('/listing/:id', api.findHome);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log("Express server listening on port " + app.get('port'));
