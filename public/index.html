@@ -27,6 +27,8 @@
 
     <script type="text/javascript" src="http://cloud.github.com/downloads/wycats/handlebars.js/handlebars-1.0.rc.1.js"></script>
 
+    <script type="text/javascript" src="js/nav.js"></script>
+
     <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
@@ -51,6 +53,9 @@
       </div>
     </div>
 
+    <!--
+      ** All content goes here..
+    -->
     <div id="content">
 
 
@@ -63,6 +68,10 @@
     <script src="js/bootstrap.min.js"></script>
     <script src="js/underscore.js"></script>
 
+
+    <!-- 
+      Home handlebars template
+    -->
     <script id="home-template" type="text/x-handlebars-template">
       <div class="jumbotron">
 
@@ -146,6 +155,9 @@
       </div>
     </script>
 
+    <!--
+      Main page script
+    -->
     <script type="text/JavaScript">
 
       function getTemplates(render) {
@@ -180,41 +192,6 @@
         loadHome();
 
       });
-
-      function loadHome() {
-        var home = $('#home-template').html();
-        console.log('home');
-
-        var template = Handlebars.compile($("#home-template").html());
-        $('#content').html(template({}));
-
-        toggleMenuBar('li-home');
-      }
-
-      function loadListings() {
-        var template = Handlebars.compile($("#listings-template").html());
-        console.log(template);
-
-        $('#content').html(template({}));
-        toggleMenuBar('li-listings');
-      }
-
-      function toggleMenuBar(activeButton) {
-        // reimpl w/o hardcoded list
-        var items = ['li-home', 'li-listings', 'li-customers', 'li-about'];
-        console.log(items);
-
-        _.each(items, function(item) {
-          console.log(item);
-
-          if(item === activeButton) {
-            $('#'+item).addClass('active');
-          } else {
-            $('#' + item).removeClass('active');
-          }
-        });
-      }
-
     </script>
   </body>
 </html>
