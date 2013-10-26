@@ -10,7 +10,6 @@ function loadHome() {
 
 function loadListings() {
   var template = Handlebars.compile($("#listings-template").html());
-  console.log(template);
 
   $('#content').html(template({}));
   toggleMenuBar('li-listings');
@@ -22,7 +21,6 @@ function toggleMenuBar(activeButton) {
   console.log(items);
 
   _.each(items, function(item) {
-    console.log(item);
 
     if(item === activeButton) {
       $('#'+item).addClass('active');
