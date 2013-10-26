@@ -1,31 +1,35 @@
-function loadHome() {
-  var home = $('#home-template').html();
-  console.log('home');
+var Nav = {
 
-  var template = Handlebars.compile($("#home-template").html());
-  $('#content').html(template({}));
+    loadHome: function() {
+      var home = $('#home-template').html();
+      console.log('home');
 
-  toggleMenuBar('li-home');
-}
+      var template = Handlebars.compile($("#home-template").html());
+      $('#content').html(template({}));
 
-function loadListings() {
-  var template = Handlebars.compile($("#listings-template").html());
+      this.toggleMenuBar('li-home');
+    },
 
-  $('#content').html(template({}));
-  toggleMenuBar('li-listings');
-}
+    loadListings: function() {
+      var template = Handlebars.compile($("#listings-template").html());
 
-function toggleMenuBar(activeButton) {
-  // reimpl w/o hardcoded list
-  var items = ['li-home', 'li-listings', 'li-customers', 'li-about'];
-  console.log(items);
+      $('#content').html(template({}));
+      this.toggleMenuBar('li-listings');      
+    },
 
-  _.each(items, function(item) {
+    toggleMenuBar: function(activeButton){
+      // reimpl w/o hardcoded list
+      var items = ['li-home', 'li-listings', 'li-customers', 'li-about'];
+      console.log(items);
 
-    if(item === activeButton) {
-      $('#'+item).addClass('active');
-    } else {
-      $('#' + item).removeClass('active');
+      _.each(items, function(item) {
+
+        if(item === activeButton) {
+          $('#'+item).addClass('active');
+        } else {
+          $('#' + item).removeClass('active');
+        }
+      });
     }
-  });
-}
+};
+
